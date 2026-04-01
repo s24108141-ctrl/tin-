@@ -241,6 +241,14 @@
             z-index: 1;
         }
 
+        .portfolio-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .portfolio-item strong {
             display: block;
             margin-bottom: 8px;
@@ -401,6 +409,9 @@
                         </div>
                     </div>
                     <div class="portfolio-item portfolio-3">
+                        <video class="portfolio-video" autoplay muted loop playsinline>
+                            <source src="assets/portfolio-3.mp4" type="video/mp4">
+                        </video>
                         <div>
                             <strong>活動紀錄</strong>
                             <span>保留現場情緒與品牌溫度，兼顧故事性與宣傳用途。</span>
