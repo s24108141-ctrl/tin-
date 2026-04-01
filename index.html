@@ -216,14 +216,29 @@
         }
 
         .portfolio-item {
-            min-height: 240px;
+            position: relative;
+            min-height: 280px;
             border-radius: 20px;
             border: 1px solid var(--line);
             overflow: hidden;
-            background: linear-gradient(160deg, rgba(212,175,55,0.16), rgba(255,255,255,0.04));
+            background-color: #17181d;
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: end;
             padding: 20px;
+        }
+
+        .portfolio-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.72));
+        }
+
+        .portfolio-item > div {
+            position: relative;
+            z-index: 1;
         }
 
         .portfolio-item strong {
@@ -232,9 +247,14 @@
         }
 
         .portfolio-item span {
-            color: var(--muted);
+            color: rgba(255,255,255,0.88);
             font-size: 0.95rem;
         }
+
+        .portfolio-1 { background-image: url('assets/portfolio-1.jpg'); }
+        .portfolio-2 { background-image: url('assets/portfolio-2.jpg'); }
+        .portfolio-3 { background-image: url('assets/portfolio-3.jpg'); }
+        .portfolio-4 { background-image: url('assets/portfolio-4.jpg'); }
 
         .process-grid {
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -368,25 +388,25 @@
                     <p>目前網站先展示工作室的服務方向。之後可再補上正式作品集頁面、案例照片與客戶合作內容。</p>
                 </div>
                 <div class="portfolio-grid">
-                    <div class="portfolio-item">
+                    <div class="portfolio-item portfolio-1">
                         <div>
                             <strong>品牌形象</strong>
                             <span>為品牌建立一致的視覺語言與專業信任感。</span>
                         </div>
                     </div>
-                    <div class="portfolio-item">
+                    <div class="portfolio-item portfolio-2">
                         <div>
                             <strong>質感人像</strong>
                             <span>聚焦人物特質、表情張力與畫面氛圍的精準控制。</span>
                         </div>
                     </div>
-                    <div class="portfolio-item">
+                    <div class="portfolio-item portfolio-3">
                         <div>
                             <strong>活動紀錄</strong>
                             <span>保留現場情緒與品牌溫度，兼顧故事性與宣傳用途。</span>
                         </div>
                     </div>
-                    <div class="portfolio-item">
+                    <div class="portfolio-item portfolio-4">
                         <div>
                             <strong>社群內容</strong>
                             <span>讓照片能直接成為貼文主視覺、封面圖與廣告素材。</span>
@@ -439,7 +459,9 @@
                         <ul class="contact-list">
                             <li>工作室名稱：星幕光影工作室</li>
                             <li>地址：高雄市仁武區八德南路1之1號1樓</li>
-                            <li>聯絡方式：<strong>可補上 LINE / IG / Email</strong></li>
+                            <li>Email：<a href="mailto:s0973051066@gmail.com">s0973051066@gmail.com</a></li>
+                            <li>Instagram：<a href="https://www.instagram.com/little_tin_0513?igsh=ZnBubWFubmt6bTRo&utm_source=qr" target="_blank" rel="noopener noreferrer">@little_tin_0513</a></li>
+                            <li>LINE ID：lienID@3740886</li>
                             <li>服務地區：高雄為主，可另議外縣市拍攝</li>
                         </ul>
                     </div>
@@ -449,10 +471,10 @@
                             目前這是第一版正式上線頁面。下一步建議加入：
                         </p>
                         <ul>
-                            <li>Instagram / LINE / Email 直接按鈕</li>
-                            <li>作品集真實照片展示</li>
-                            <li>合作方案或服務價格區間</li>
-                            <li>表單詢問或預約流程</li>
+                            <li>補上更完整的作品集頁面與分類相簿</li>
+                            <li>加入合作方案或服務價格區間</li>
+                            <li>加入表單詢問或預約流程</li>
+                            <li>後續可綁定自訂品牌網域</li>
                         </ul>
                     </div>
                 </div>
