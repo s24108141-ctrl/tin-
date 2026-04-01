@@ -3,67 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星幕光影工作室 | 攝影與光影設計</title>
-    <meta name="description" content="高雄星幕光影工作室，提供商業攝影、光影人像與專業影像敘事設計。捕捉您的瞬間，定格恆久光影。">
+    <title>星幕光影工作室 | 攝影・人像・品牌視覺</title>
+    <meta name="description" content="星幕光影工作室，提供商業攝影、形象人像、品牌視覺與影像企劃服務，為品牌與個人打造具有溫度與辨識度的視覺作品。">
+    <meta name="theme-color" content="#0b0b0d">
     <style>
         :root {
-            --primary: #f4f4f4;
-            --accent: #d4af37; /* 金屬質感暖金色 */
-            --bg: #0a0a0a; /* 質感深黑 */
+            --bg: #0b0b0d;
+            --panel: #131317;
+            --soft: #1b1c22;
+            --text: #f5f5f5;
+            --muted: #b7b7be;
+            --accent: #d4af37;
+            --line: rgba(255,255,255,0.08);
+            --max: 1160px;
         }
-        * { box-sizing: border-box; }
-        body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--primary); margin: 0; line-height: 1.8; }
-        
-        /* 導航 */
-        nav { padding: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
-        
-        /* 視覺區 */
-        .hero { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hero.jpg'); background-size: cover; text-align: center; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        
-        /* 內容區 */
-        .container { max-width: 1100px; margin: 80px auto; padding: 0 20px; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
-        .service-card { border: 1px solid #333; padding: 30px; transition: 0.3s; }
-        .service-card:hover { border-color: var(--accent); }
-        .accent { color: var(--accent); }
 
-        footer { padding: 60px; text-align: center; border-top: 1px solid #333; font-size: 0.9rem; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(212,175,55,0.10), transparent 28%),
+                linear-gradient(180deg, #0b0b0d 0%, #111217 100%);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        .wrap {
+            width: min(100% - 32px, var(--max));
+            margin: 0 auto;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(12px);
+            background: rgba(11, 11, 13, 0.72);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: grid;
+            align-items: center;
+            padding: 72px 0 56px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.85rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.4rem, 5vw, 4.8rem);
+            line-height: 1.08;
+            letter-spacing: 0.03em;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 0 28px;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+        }
+
+        .hero-card h3 {
+            margin-top: 0;
+            margin-bottom: 14px;
+            color: var(--accent);
+        }
+
+        .hero-card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: 0.2s ease;
+            border: 1px solid var(--line);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #111;
+            border-color: var(--accent);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.96;
+        }
+
+        section {
+            padding: 72px 0;
+        }
+
+        .section-head {
+            margin-bottom: 28px;
+        }
+
+        .section-head h2 {
+            margin: 0 0 10px;
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 760px;
+        }
+
+        .service-grid,
+        .portfolio-grid,
+        .process-grid,
+        .contact-grid {
+            display: grid;
+            gap: 22px;
+        }
+
+        .service-grid {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .portfolio-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .portfolio-item {
+            min-height: 240px;
+            border-radius: 20px;
+            border: 1px solid var(--line);
+            overflow: hidden;
+            background: linear-gradient(160deg, rgba(212,175,55,0.16), rgba(255,255,255,0.04));
+            display: flex;
+            align-items: end;
+            padding: 20px;
+        }
+
+        .portfolio-item strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .portfolio-item span {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .process-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .step-num {
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .contact-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-note {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--muted);
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 0 40px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 860px) {
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">星幕光影</div>
-        <div>作品集 | 關於我們 | 聯繫</div>
+        <div class="wrap nav-inner">
+            <div class="logo">星幕光影工作室</div>
+            <div class="nav-links">
+                <a href="#services">服務項目</a>
+                <a href="#portfolio">作品方向</a>
+                <a href="#process">合作流程</a>
+                <a href="#contact">聯絡我們</a>
+            </div>
+        </div>
     </nav>
+
     <main>
         <section class="hero">
-            <h1>捕捉靈魂的光影敘事</h1>
-            <p>星幕光影工作室，定義您的視覺美學</p>
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="eyebrow">Star Curtain Studio</span>
+                    <h1>用光影，替品牌與人物留下有質感的記憶。</h1>
+                    <p>
+                        星幕光影工作室專注於商業攝影、形象人像與品牌視覺規劃。
+                        我們相信，一張好照片不只是清楚，而是能讓人記住你的氣質、價值與故事。
+                    </p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#contact">立即洽詢合作</a>
+                        <a class="btn btn-secondary" href="#portfolio">查看作品方向</a>
+                    </div>
+                </div>
+
+                <div class="hero-card">
+                    <h3>適合的合作類型</h3>
+                    <ul>
+                        <li>品牌形象照 / 商業形象企劃</li>
+                        <li>個人寫真 / 質感人像 / 風格棚拍</li>
+                        <li>活動紀錄 / 社群素材 / 視覺宣傳圖</li>
+                        <li>影像提案、風格定位與整體視覺包裝</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        <section class="container">
-            <h2>我們的專業服務</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3 class="accent">商業攝影</h3>
-                    <p>精確傳達品牌價值，運用光影構築行銷視覺，提升市場影響力。</p>
+
+        <section id="services">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>服務項目</h2>
+                    <p>不只是按下快門，而是從企劃、風格、拍攝到後期，協助你建立完整的視覺呈現。</p>
                 </div>
-                <div class="service-card">
-                    <h3 class="accent">光影人像</h3>
-                    <p>超越鏡頭的捕捉，定格人物深層情感，打造獨一無二的個人特質。</p>
+                <div class="service-grid">
+                    <div class="card">
+                        <h3 class="accent">商業攝影</h3>
+                        <p>針對品牌形象、產品視覺、活動宣傳與社群內容，打造可直接應用於商業傳播的照片素材。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent">形象人像</h3>
+                        <p>從個人定位、穿搭方向、鏡頭氛圍到修圖風格，建立專屬於你的高辨識度影像氣質。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent">品牌視覺企劃</h3>
+                        <p>協助整理拍攝主題、畫面語言與輸出用途，讓照片不只是好看，而是有商業效率。</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent">社群與宣傳素材</h3>
+                        <p>依照 Instagram、Facebook、網站首頁與活動頁面需求，提供更適合曝光與轉換的內容配置。</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3 class="accent">設計與企劃</h3>
-                    <p>從影像行銷到展演空間規劃，提供完整的視覺敘事解決方案。</p>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>作品方向</h2>
+                    <p>目前網站先展示工作室的服務方向。之後可再補上正式作品集頁面、案例照片與客戶合作內容。</p>
+                </div>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div>
+                            <strong>品牌形象</strong>
+                            <span>為品牌建立一致的視覺語言與專業信任感。</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div>
+                            <strong>質感人像</strong>
+                            <span>聚焦人物特質、表情張力與畫面氛圍的精準控制。</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div>
+                            <strong>活動紀錄</strong>
+                            <span>保留現場情緒與品牌溫度，兼顧故事性與宣傳用途。</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div>
+                            <strong>社群內容</strong>
+                            <span>讓照片能直接成為貼文主視覺、封面圖與廣告素材。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>合作流程</h2>
+                    <p>把拍攝這件事變得清楚、可溝通、可執行，讓你知道每一步會得到什麼。</p>
+                </div>
+                <div class="process-grid">
+                    <div class="card">
+                        <div class="step-num">Step 01</div>
+                        <h3>需求溝通</h3>
+                        <p>確認拍攝主題、用途、風格方向、參考畫面與預算範圍。</p>
+                    </div>
+                    <div class="card">
+                        <div class="step-num">Step 02</div>
+                        <h3>前期企劃</h3>
+                        <p>規劃場景、服裝、燈光、時間安排與預期成果，降低拍攝現場失誤。</p>
+                    </div>
+                    <div class="card">
+                        <div class="step-num">Step 03</div>
+                        <h3>正式拍攝</h3>
+                        <p>依風格與用途完成拍攝，同步控制畫面穩定度、氛圍與素材多樣性。</p>
+                    </div>
+                    <div class="card">
+                        <div class="step-num">Step 04</div>
+                        <h3>挑片與後製</h3>
+                        <p>進行初選、精修與交付整理，讓最終照片更適合品牌曝光與內容使用。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>聯絡我們</h2>
+                    <p>如果你準備好建立更有質感的品牌形象或個人視覺，歡迎先來訊討論需求。</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="card">
+                        <h3 class="accent">合作聯繫</h3>
+                        <ul class="contact-list">
+                            <li>工作室名稱：星幕光影工作室</li>
+                            <li>地址：高雄市仁武區八德南路1之1號1樓</li>
+                            <li>聯絡方式：<strong>可補上 LINE / IG / Email</strong></li>
+                            <li>服務地區：高雄為主，可另議外縣市拍攝</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 class="accent">網站下一步可補強</h3>
+                        <p class="contact-note">
+                            目前這是第一版正式上線頁面。下一步建議加入：
+                        </p>
+                        <ul>
+                            <li>Instagram / LINE / Email 直接按鈕</li>
+                            <li>作品集真實照片展示</li>
+                            <li>合作方案或服務價格區間</li>
+                            <li>表單詢問或預約流程</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
     <footer>
-        <p>星幕光影工作室 (統編：00837665)</p>
-        <p>高雄市仁武區八德南路1之1號1樓</p>
-        <p>&copy; 2026 Star Curtain Studio. All Rights Reserved.</p>
+        <div class="wrap">
+            <p>星幕光影工作室｜統編：00837665</p>
+            <p>© 2026 Star Curtain Studio. All Rights Reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
